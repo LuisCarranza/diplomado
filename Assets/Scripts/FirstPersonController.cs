@@ -23,8 +23,7 @@ public class FirstPersonController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
             // fpsRB.AddForce(Vector3.up * jumpForce);
-            fpsRB.velocity = (transform.up * jumpForce) + (transform.forward * speed * Input.GetAxis("Vertical") * Time.deltaTime) +
-                        (transform.right * speed * Input.GetAxis("Horizontal") * Time.deltaTime);
+            fpsRB.velocity = new Vector3(fpsRB.velocity.x, jumpForce, fpsRB.velocity.z);
 
         fpsRB.velocity = (transform.forward * speed * Input.GetAxis("Vertical") * Time.deltaTime) +
                         (transform.right * speed * Input.GetAxis("Horizontal") * Time.deltaTime);
@@ -42,7 +41,7 @@ public class FirstPersonController : MonoBehaviour
         // Añadir camara como objeto y pasarle desde el editor la cámara
         // angleX = -speedRot * Time.deltaTime * Input.GetAxis("Mouse Y");
         // angleX = Mathf.Clamp(angleX, -90f, 90f);
-        // transformCamera.rotation = Quaternion.Euler(angleX, angleY, 0f);
+        // transformCamera.rotation = Quaternion.Euler(angleX, angleY, 0f); //Usar localRotation
 
         // angleY = speedRot * Time.deltaTime * Input.GetAxis("Mouse X");
         // transform.rotation = Quaternion.Euler(0f, angleY, 0f);
