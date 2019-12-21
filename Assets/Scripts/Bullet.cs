@@ -10,7 +10,9 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Vector3 normal = collision.GetContact(0).normal;
-        decalTMP = Instantiate(decalPrefab, transform.position, Quaternion.Euler(normal));
+        // Debug.Log(collision.transform.name);
+        // decalTMP = Instantiate(decalPrefab, transform.position, Quaternion.Euler(normal));
+        decalTMP = Instantiate(decalPrefab, collision.GetContact(0).point, Quaternion.FromToRotation(Vector3.forward, normal));
         decalTMP.transform.parent = collision.transform;  //objectTransform
         Destroy(this.gameObject);
     }
