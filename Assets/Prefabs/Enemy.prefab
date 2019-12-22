@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1001962392}
   - component: {fileID: 1001962391}
   - component: {fileID: 1001962390}
+  - component: {fileID: 1637933242039034196}
   m_Layer: 5
   m_Name: LifeBarCanvas
   m_TagString: Untagged
@@ -99,6 +100,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &1637933242039034196
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001962388}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1552587642
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +183,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &1552587646
@@ -1493,6 +1506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919a44d1d577c23469e5a451e8786fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
 --- !u!1 &5455501115607687511
 GameObject:
   m_ObjectHideFlags: 0

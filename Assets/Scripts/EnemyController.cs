@@ -9,36 +9,36 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent enemyAgent;
     private Transform playerTransform;
 
-    public int lives;
-    // In animator create a "dead" trigger
-
+    public int maxHealth = 5;
+    public int currentHealth;
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();
         enemyAgent = GetComponent<NavMeshAgent>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        lives = 5;
+        currentHealth = maxHealth;
     }
 
     void Update()
     {
         enemyAgent.SetDestination(playerTransform.position);
         // Debug.Log("Distance to player: " + enemyAgent.remainingDistance);
-        enemyAnimator.SetBool("Punch", false);
-        if (lives == 0)
+        if (currentHealth <= 0)
         {
-            //Launch "dead" trigger
-            enemyAnimator.SetFloat("Speed", 0f);
-            // yield return new WaitForSeconds(5);
-            // Debug.Log("Dead");
-            Destroy(this.gameObject);
+            enemyAnimator.SetTrigger("Dead");
+            enemyAgent.isStopped = true;
+            if (enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
+                Destroy(this.gameObject);
         }
-        if (enemyAgent.remainingDistance <= 1f && enemyAgent.hasPath)
+        if (enemyAgent.remainingDistance <= 1.2f && enemyAgent.hasPath)
         {
             enemyAnimator.SetFloat("Speed", 0f);
             enemyAnimator.SetBool("Punch", true);
         }
         else
+        {
             enemyAnimator.SetFloat("Speed", enemyAgent.speed);
+            enemyAnimator.SetBool("Punch", false);
+        }
     }
 }
