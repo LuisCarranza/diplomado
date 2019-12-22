@@ -28,7 +28,10 @@ public class EnemyController : MonoBehaviour
             enemyAnimator.SetTrigger("Dead");
             enemyAgent.isStopped = true;
             if (enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().score += 1;
                 Destroy(this.gameObject);
+            }
         }
         if (enemyAgent.remainingDistance <= 1.2f && enemyAgent.hasPath)
         {

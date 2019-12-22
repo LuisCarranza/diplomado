@@ -25,8 +25,8 @@ public class FirstPersonController : MonoBehaviour
     {
         fpsRB = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
-        healthText.text = "Vidas: " + currentHealth.ToString();
-        scoreText.text = "Enemigos Destruidos: " + score.ToString();
+        healthText.text = "Lives: " + currentHealth.ToString();
+        scoreText.text = "Score: " + score.ToString();
     }
     void Update()
     {
@@ -47,8 +47,8 @@ public class FirstPersonController : MonoBehaviour
         angleX = Mathf.Clamp(angleX, -85f, 75f);
         transformCamera.transform.localRotation = Quaternion.Euler(angleX, 0, 0);
         
-        healthText.text = "Vidas: " + currentHealth.ToString();
-        scoreText.text = "Enemigos Destruidos: " + score.ToString();
+        healthText.text = "Lives: " + currentHealth.ToString();
+        scoreText.text = "Score: " + score.ToString();
 
         if(currentHealth == 0)
             SceneManager.LoadScene(0);
