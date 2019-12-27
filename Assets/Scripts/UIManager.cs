@@ -14,9 +14,10 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        currentState = UIState.MAIN_MENU;
-        CleanUI();
-        mainMenuPanel.SetActive(true);
+        // currentState = UIState.MAIN_MENU;
+        // CleanUI();
+        // mainMenuPanel.SetActive(true);
+        MainMenu();
     }
 
     void CleanUI()
@@ -29,5 +30,26 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void MainMenu()
+    {
+        currentState = UIState.MAIN_MENU;
+        CleanUI();
+        mainMenuPanel.SetActive(true);
+    }
+
+    public void OptionsMenu()
+    {
+        currentState = UIState.OPTIONS;
+        CleanUI();
+        optionsPanel.SetActive(true);
+    }
+    
+    public void CreditsMenu()
+    {
+        currentState = UIState.CREDITS;
+        CleanUI();
+        creditsPanel.SetActive(true);
     }
 }
