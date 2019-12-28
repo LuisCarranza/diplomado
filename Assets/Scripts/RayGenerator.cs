@@ -7,11 +7,17 @@ public class RayGenerator : MonoBehaviour
     public float distance;
     Ray viewRay;
     RaycastHit viewHit;
+    public GameObject crossHairPrefab;
+    private GameObject crossHair;
+
+    void Start() {
+        crossHair = Instantiate(crossHairPrefab, Vector3.zero, Quaternion.identity);
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
+        // if (Input.GetMouseButtonDown(1))
+        // {
             // Generar rayo del centro de la pantalla
             viewRay = Camera.main.ScreenPointToRay(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f));
             // en viewHit se guarda la información del raycast 
@@ -22,7 +28,9 @@ public class RayGenerator : MonoBehaviour
                 {
                     viewHit.transform.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 150f);
                 }
+                crossHair.transform.forward = viewHit.normal;
+                crossHair.transform.position = viewHit.point + Vector3.forward * 0.05f;
             }
-        }
+        // }
     }
 }
