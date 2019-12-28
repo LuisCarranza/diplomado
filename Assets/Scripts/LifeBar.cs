@@ -31,7 +31,9 @@ public class LifeBar : MonoBehaviour
         currentHealth = this.GetComponentInParent<EnemyController>().currentHealth;
         float normHealth = (float)currentHealth / (float)maxHealth;
         // lifeBarImage.fillAmount = normHealth;
-        lifeBarImage.fillAmount = Mathf.Lerp(0, normHealth, (Time.time - startTime) / animDuration);
+        lifeBarImage.fillAmount = normHealth;
+        lifeBarImage.color = Color.Lerp(emptyLife,fullLife,normHealth);
+        // lifeBarImage.fillAmount = Mathf.Lerp(0, normHealth, (Time.time - startTime) / animDuration);
         // lifeBarImage.color = Color.Lerp(emptyLife, fullLife, (Time.time - startTime) / animDuration);
     }
 }
