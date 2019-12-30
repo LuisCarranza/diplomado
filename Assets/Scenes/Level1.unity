@@ -58,7 +58,7 @@ LightmapSettings:
     m_Resolution: 2
     m_BakeResolution: 20
     m_AtlasSize: 1024
-    m_AO: 0
+    m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
@@ -14906,7 +14906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77365b979a55644c8f6d910ac9c1b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 50
+  distance: 100
   crossHairPrefab: {fileID: 1084479355564700, guid: 9695fb975d2a2f646a108d77fa318e3e,
     type: 3}
 --- !u!4 &1780858043

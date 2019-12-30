@@ -29,7 +29,7 @@ public class RayGenerator : MonoBehaviour
                     viewHit.transform.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 150f);
                 }
                 crossHair.transform.forward = viewHit.normal;
-                crossHair.transform.position = viewHit.point + Vector3.forward * 0.05f;
+                crossHair.transform.position = viewHit.point + crossHair.transform.forward * 0.05f;
             }
         // }
     }

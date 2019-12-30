@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
             Vector3 position = collision.GetContact(0).point;
             Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, normal);
             // decalTMP = Instantiate(decalPrefab, collision.GetContact(0).point, Quaternion.FromToRotation(Vector3.forward, normal));
-            decalTMP = Instantiate(decalPrefab, position + Vector3.forward * 0.01f, Quaternion.identity);
+            decalTMP = Instantiate(decalPrefab, position + normal * 0.01f, Quaternion.identity);
             decalTMP.transform.forward = normal;
             decalTMP.transform.parent = collision.transform;  //objectTransform
         }
