@@ -60,10 +60,10 @@ Material:
     - _Surface: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.542}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.20754692, g: 0.20754692, b: 0.20754692, a: 0.5}
+    - _SpecColor: {r: 0.20754686, g: 0.20754686, b: 0.20754686, a: 0.5}
 --- !u!114 &8618206073877258199
 MonoBehaviour:
   m_ObjectHideFlags: 11

@@ -27,6 +27,7 @@ public class FirstPersonController : MonoBehaviour
         currentHealth = maxHealth;
         healthText.text = "Lives: " + currentHealth.ToString();
         scoreText.text = "Score: " + score.ToString();
+        Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
     {
@@ -46,12 +47,15 @@ public class FirstPersonController : MonoBehaviour
         angleX += -speedRot * Time.deltaTime * Input.GetAxis("Mouse Y");
         angleX = Mathf.Clamp(angleX, -85f, 75f);
         transformCamera.transform.localRotation = Quaternion.Euler(angleX, 0, 0);
-        
+
         healthText.text = "Lives: " + currentHealth.ToString();
         scoreText.text = "Score: " + score.ToString();
 
-        if(currentHealth == 0)
+        if (currentHealth <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(0);
+        }
     }
 
     void OnCollisionEnter(Collision collision)

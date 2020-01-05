@@ -9,9 +9,9 @@ public class AnimatorFeedback : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Para iniciar las partículas al caminar
-        // animator.gameObject.GetComponent<EnemyController>().playDust();
+        animator.gameObject.GetComponent<EnemyController>().PlayDust();
         // animator.gameObject.SendMessage("PlayDust");
-        Debug.Log("Entrando a locomotion");
+        // Debug.Log("Entrando a locomotion");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,7 +23,9 @@ public class AnimatorFeedback : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Saliendo de locomotion");
+        animator.gameObject.GetComponent<EnemyController>().StopDust();
+        // animator.gameObject.SendMessage("StopDust");
+        // Debug.Log("Saliendo de locomotion");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
