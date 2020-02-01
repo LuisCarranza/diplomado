@@ -11,20 +11,31 @@ public class ThirdPersonController : MonoBehaviour
     private Touch fingerTouch;
     private Vector2 posInit;
     private Vector2 swipeDirection;
+    private bool active;
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
         capsule = GetComponent<CapsuleCollider>();
+        active = true;
+    }
+
+    public void ActiveController(bool state)
+    {
+        active = state;
+        if (!active)
+            playerAnimator.SetFloat("Speed", 0f);
     }
 
     void Update()
     {
+        if (!active)
+            return;
         currentState = playerAnimator.GetCurrentAnimatorStateInfo(0);
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_EDITOR
         playerAnimator.SetFloat("Speed", Input.GetAxis("Vertical"));
         playerAnimator.SetFloat("Direction", Input.GetAxis("Horizontal"));
 #endif
-#if UNITY_ANDROID || UNITY_IOS
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
 #if !ACCEL_CONTROLLER && !SWIPE_CONTROLLER
         playerAnimator.SetFloat("Speed", 1f);
         if (Input.touchCount > 0)
